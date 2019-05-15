@@ -1,6 +1,7 @@
 <template>
   <div id="index">
     <h1>999999999</h1>
+    <Loading></Loading>
     <nuxt-link to="/home">home</nuxt-link>
     <ul>
       <li v-for=" item in list "  :key="item.id">
@@ -15,14 +16,19 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
+import Loading from '~/components/Loading.vue'
 export default {
+  asyncData() {
+    return new Promise((resolve) => {
+      setTimeout(function () {
+        resolve({})
+      }, 1000)
+    })
+  },
   components: {
-    Logo,
-    VuetifyLogo
+    Loading
   },
   data () {
     return{
@@ -46,8 +52,8 @@ export default {
   },
 }
 </script>
-<style lang="stylus" scoped>
-  & h1
+<style lang="stylus" scope>
+  #index h1
     color #ff0000 
   #index img
    width 50px
