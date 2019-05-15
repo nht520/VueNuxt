@@ -2,7 +2,6 @@ import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
 
 export default {
-  loading: '~components/loading.vue',
   mode: 'spa',
 
   /*

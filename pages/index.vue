@@ -1,7 +1,6 @@
 <template>
   <div id="index">
     <h1>999999999</h1>
-    <Loading></Loading>
     <nuxt-link to="/home">home</nuxt-link>
     <ul>
       <li v-for=" item in list "  :key="item.id">
@@ -18,7 +17,6 @@
 <script>
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
-import Loading from '~/components/Loading.vue'
 export default {
   asyncData() {
     return new Promise((resolve) => {
@@ -28,7 +26,6 @@ export default {
     })
   },
   components: {
-    Loading
   },
   data () {
     return{
