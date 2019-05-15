@@ -18,13 +18,6 @@
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
 export default {
-  asyncData() {
-    return new Promise((resolve) => {
-      setTimeout(function () {
-        resolve({})
-      }, 1000)
-    })
-  },
   components: {
   },
   data () {
