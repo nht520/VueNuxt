@@ -42,7 +42,8 @@ export default {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/storage',
-    './plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/besurl'
   ],
 
   /*

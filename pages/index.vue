@@ -31,7 +31,7 @@ export default {
   },
   methods:{
     submit(){
-      const api = "http://wx.bomao.xyz:8080/distributor/distributor/meal";
+      const api = window.g.meal;
       Axios.get(api).then((res)=>{
         console.log(res)
         this.list=res.data.records;
