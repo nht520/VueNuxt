@@ -34,7 +34,6 @@ export default {
     if (!from) return 'slide-left'
     return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
   },
-  
   async asyncData({ query }) {
     const page = +query.page || 1
     const data = await fetch(`https://reqres.in/api/users?page=${page}`).then(res => res.json())

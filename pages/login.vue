@@ -4,38 +4,29 @@
     <p>It should take 5 seconds for the loader to disappear</p>
     <p>
       It should take 5 seconds for the route to change after you
-      <span class="link" @click="goToFinal">
         click here
-      </span>
     </p>
+    <nuxt-link to="/">返回</nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
-  loading: false,
+  transition(to, from) {
+    if (!from) return 'slide-left'
+    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+  },
   asyncData() {
     return new Promise((resolve) => {
       setTimeout(function () {
         resolve({})
-      }, 1000)
+      })
     })
   },
   mounted() {
-    setTimeout(() => {
-      // Extend loader for an additional 5s
-      this.$nuxt.$loading.finish()
-    }, 5000)
+
   },
   methods: {
-    goToFinal() {
-      // Start loader immediately
-      this.$nuxt.$loading.start()
-      // Actually change route 5s later
-      setTimeout(() => {
-        this.$router.push('/')
-      }, 5000)
-    }
   }
 }
 </script>

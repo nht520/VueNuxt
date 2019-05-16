@@ -2,47 +2,60 @@
   <div id="container">
     <h1>999999999</h1>
        <nuxt-link to="/home">home</nuxt-link>
-        <nuxt-link to="/login">login</nuxt-link>      
+       <nuxt-link to="/login">login</nuxt-link>      
     <ul>
       <li v-for=" item in list "  :key="item.id">
         <h1>{{item.mealContent}}</h1>
         <p>{{item.mealDetail}}</p>
-        <p>{{item.mealName}}</p>
-        <img :src="item.mealImage"/>
+        <p>{{item.first_name}}</p>
+        <img :src="item.avatar"/>
       </li>
     </ul>
-    <el-button type="primary">主要按钮</el-button>
+    <el-button type="primary" @click="submit()">主要按钮</el-button>
+    <!-- 新闻 -->
+    <news></news>
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
+import news from '~/pages/news/news.vue';
 export default {
+  // 页面切换动画
   transition(to, from) {
-    if (!from) return 'slide-left'
-    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+    if (!from) return 'slide-right'
+    return +to.query.page < +from.query.page ? 'slide-left' : 'slide-right'
   },
+  // 加载动画
   asyncData() {
     return new Promise((resolve) => {
       setTimeout(function () {
         resolve({})
-      }, 1000)
+      },500)
     })
   },
   components: {
+    news
   },
   data () {
     return{
-      list:[]
+      list:[],
     }
   },
   methods:{
     submit(){
       const api = "https://reqres.in/api/users?page=1";
       Axios.get(api).then((res)=>{
-        console.log(res)
-        this.list=res.data.records;
+         // Start loader immediately
+          // Start loader immediately
+          this.$nuxt.$loading.start()
+          // Actually change route 5s later
+          setTimeout(() => {
+            this.$router.push('/home')
+          }, 1000)
+        // Actually change route 5s later
+        this.list=res.data.data;
         storage.set("list",this.list);
       }).catch((err)=>{
         console.log(err)
@@ -50,11 +63,13 @@ export default {
     }
   },
   mounted() {
-    this.submit();
   },
 }
 </script>
 <style lang="stylus" scope>
+  #container
+   text-align center
+   width 100%
   #container h1
     color #ff0000 
   #container img

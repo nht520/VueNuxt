@@ -14,7 +14,7 @@ window.g = {
     stock:api+'/distributor/stock',
     //  套餐
     meal:api+"/distributor/meal",
-    mealDts:api+"/distributor/meal/findById?id=",
+    mealDts:api+"/distributor/meal/findById?",
     //自己发货订单
     indent:api+"/distributor/order",
     update:api+"/distributor/order/update",
