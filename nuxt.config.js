@@ -34,6 +34,7 @@ export default {
   */
   css: [
     '~/assets/style/app.styl',
+    '~assets/transletion.css'
   ],
 
   /*

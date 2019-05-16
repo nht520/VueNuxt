@@ -1,7 +1,8 @@
 <template>
-  <div id="index">
+  <div id="container">
     <h1>999999999</h1>
-    <nuxt-link to="/home">home</nuxt-link>
+       <nuxt-link to="/home">home</nuxt-link>
+        <nuxt-link to="/login">login</nuxt-link>      
     <ul>
       <li v-for=" item in list "  :key="item.id">
         <h1>{{item.mealContent}}</h1>
@@ -18,6 +19,17 @@
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
 export default {
+  transition(to, from) {
+    if (!from) return 'slide-left'
+    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+  },
+  asyncData() {
+    return new Promise((resolve) => {
+      setTimeout(function () {
+        resolve({})
+      }, 1000)
+    })
+  },
   components: {
   },
   data () {
@@ -27,7 +39,7 @@ export default {
   },
   methods:{
     submit(){
-      const api = window.g.meal;
+      const api = "https://reqres.in/api/users?page=1";
       Axios.get(api).then((res)=>{
         console.log(res)
         this.list=res.data.records;
@@ -43,9 +55,9 @@ export default {
 }
 </script>
 <style lang="stylus" scope>
-  #index h1
+  #container h1
     color #ff0000 
-  #index img
+  #container img
    width 50px
    height 50px  
 </style>

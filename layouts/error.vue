@@ -3,7 +3,7 @@
         <div id='outer'>
             <h1>4</h1>
             <h1>0</h1>
-            <h1>4</h1>
+            <h1>6</h1>
             <div class='wrap'>
                 <div class='ghost'>
                     <div class='inner'></div>
@@ -16,6 +16,7 @@
                 </div>
             </div>
             <!---->
+            <nuxt-link to="/" tag="p">页面去火星玩啦？ 返回首页  》</nuxt-link>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none">
             <defs>
@@ -49,6 +50,12 @@ export default {
 }
 </script>
 <style>
+        .content p{
+            position: fixed;
+            color: #ccc;
+            margin-top: 15%;
+            font-size: 24px;
+        }
         .content {
             display: flex;
             justify-content: center;
