@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import colors from 'vuetify/es5/util/colors'
-import 'vuetify/dist/vuetify.min.css' // Ensure you are using stylus-loader
 
 Vue.use(Vuetify, {
   theme: {

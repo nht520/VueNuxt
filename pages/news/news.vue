@@ -13,6 +13,11 @@
 <script>
     import Axios from 'axios'
     export default {
+          // Called to know which transition to apply
+        transition(to, from) {
+            if (!from) return 'slide-left'
+            return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+        },
         data(){
             return{
                 list:[],
