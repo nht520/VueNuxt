@@ -42,6 +42,7 @@ export default {
   */
   plugins: [
     '@/plugins/vuetify',
+    '@/plugins/v-touch',
     '@/plugins/storage',
     '@/plugins/element-ui',
     '@/plugins/besurl'
@@ -72,6 +73,6 @@ export default {
   },
   server: {
     port: 8889, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: '192.168.56.1', // default: localhost
   },
 }

@@ -1,26 +1,26 @@
 <template>
   <div id="container">
-    <h1>999999999</h1>
-       <nuxt-link to="/home">home</nuxt-link>
-       <nuxt-link to="/login">login</nuxt-link>      
-    <ul>
-      <li v-for=" item in list "  :key="item.id">
-        <h1>{{item.mealContent}}</h1>
-        <p>{{item.mealDetail}}</p>
-        <p>{{item.first_name}}</p>
-        <img :src="item.avatar"/>
-      </li>
-    </ul>
-    <el-button type="primary" @click="submit()">主要按钮</el-button>
-    <!-- 新闻 -->
-    <news></news>
-    <!-- 嵌套路由  
-      普通路由 /parent/
-      默认路由 /parent/class
-    -->
-    <nuxt-link to="/parent/class">嵌套路由</nuxt-link> 
-    <!-- 引用组件传值 -->
-    <Header  :headTitle="msg" ></Header>
+      <h1>999999999</h1>
+        <nuxt-link to="/home">home</nuxt-link>
+        <nuxt-link to="/login">login</nuxt-link>      
+      <ul>
+        <li v-for=" item in list "  :key="item.id">
+          <h1>{{item.mealContent}}</h1>
+          <p>{{item.mealDetail}}</p>
+          <p>{{item.first_name}}</p>
+          <img :src="item.avatar"/>
+        </li>
+      </ul>
+      <el-button type="primary" @click="submit()">主要按钮</el-button>
+      <!-- 新闻 -->
+      <news></news>
+      <!-- 嵌套路由  
+        普通路由 /parent/
+        默认路由 /parent/class
+      -->
+      <nuxt-link to="/parent/class">嵌套路由</nuxt-link> 
+      <!-- 引用组件传值 -->
+      <Header  :headTitle="msg" ></Header>
   </div>
 </template>
 <script>
