@@ -8,6 +8,9 @@
 <script>
     import Axios from 'axios';
     export default {
+         validate({ params }) {
+            return !isNaN(+params.dateils)
+        },
           // Called to know which transition to apply
         transition(to, from) {
             if (!from) return 'slide-left'
@@ -20,15 +23,14 @@
         },
         methods:{
             details(){
-                this.detlsid = this.$route.params.id;
+                this.detlsid = this.$route.params.dateils;
                 const date={
                     params:{
-                        id:1,
+                        id:this.detlsid,
                     }
                 };
                 const api = window.g.mealDts;
                 Axios.get(api,date).then((res)=>{
-                    console.log(res)
                     this.dateils=res.data.data;
                 }).catch((err)=>{
                     console.log(err)
@@ -36,7 +38,8 @@
             }
         },
         mounted() {
-          console.log(this.$route.params.id);
+            // console.log(params)
+          console.log(this.$route.params);
           this.details();
         }   
     }

@@ -3,7 +3,7 @@
         我是新闻组件
         <ul>
             <li v-for=" item in list" :key="item.id">
-                <nuxt-link :to="'/news/dateils/'+item.id">
+                <nuxt-link :to="'/news/'+item.id">
                     {{item.mealContent}}
                 </nuxt-link>
             </li>

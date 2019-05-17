@@ -14,6 +14,11 @@
     <el-button type="primary" @click="submit()">主要按钮</el-button>
     <!-- 新闻 -->
     <news></news>
+    <!-- 嵌套路由  
+      普通路由 /parent/
+      默认路由 /parent/class
+    -->
+    <nuxt-link to="/parent/class">嵌套路由</nuxt-link> 
   </div>
 </template>
 
@@ -21,6 +26,7 @@
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
 import news from '~/pages/news/news.vue';
+import parent from '~/pages/parent.vue';
 export default {
   // 页面切换动画
   transition(to, from) {
@@ -36,7 +42,7 @@ export default {
     })
   },
   components: {
-    news
+    news,parent
   },
   data () {
     return{
