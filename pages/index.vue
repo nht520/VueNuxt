@@ -19,14 +19,16 @@
       默认路由 /parent/class
     -->
     <nuxt-link to="/parent/class">嵌套路由</nuxt-link> 
+    <!-- 引用组件传值 -->
+    <Header  :headTitle="msg" ></Header>
   </div>
 </template>
-
 <script>
 import Axios from 'axios'
 import storage from '~/plugins/storage.js'
 import news from '~/pages/news/news.vue';
 import parent from '~/pages/parent.vue';
+import Header from '~/components/Header.vue';
 export default {
   // 页面切换动画
   transition(to, from) {
@@ -42,10 +44,11 @@ export default {
     })
   },
   components: {
-    news,parent
+    news,parent,Header
   },
   data () {
     return{
+      msg:"我是首页的头部",
       list:[],
     }
   },
