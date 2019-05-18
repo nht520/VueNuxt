@@ -9,8 +9,8 @@
 
 <script>
 export default {
+    transition:"transleft",
   // 页面切换动画
-  transition:"transleft",
 }
 </script>
 

@@ -20,10 +20,6 @@
     import Navigation from '~/components/Navigation.vue';
     export default {
           // 页面切换动画
-        transition(to, from) {
-            if (!from) return 'slide-right'
-            return +to.query.page < +from.query.page ? 'slide-left' : 'slide-right'
-        },
         name:"parent",
         components:{
             Navigation
