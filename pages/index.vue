@@ -29,10 +29,7 @@ import parent from '~/pages/parent.vue';
 import Header from '~/components/Header.vue';
 export default {
   // 页面切换动画
-  transition(to, from) {
-    if (!from) return 'slide-right'
-    return +to.query.page < +from.query.page ? 'slide-left' : 'slide-right'
-  },
+  transition:"transleft",
   // 加载动画
   asyncData() {
     return new Promise((resolve) => {
@@ -56,9 +53,9 @@ export default {
           // 加载
           this.$nuxt.$loading.start()
           // Actually change route 5s later
-          // setTimeout(() => {
-          //   this.$router.push('/home')
-          // }, 500)
+          setTimeout(() => {
+            this.$router.push('/home')
+          }, 500)
         // Actually change route 5s later
         this.list=res.data.data;
         storage.set("list",this.list);
