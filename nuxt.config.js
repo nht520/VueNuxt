@@ -11,7 +11,8 @@ export default {
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'idth=device-width, initial-scale=1, shrink-to-fit=no' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
@@ -73,6 +74,6 @@ export default {
   },
   server: {
     port: 8889, // default: 3000
-    host: '192.168.56.1', // default: localhost
+    host: '192.168.5.2', // default: localhost
   },
 }

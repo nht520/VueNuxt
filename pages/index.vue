@@ -56,7 +56,6 @@ export default {
     submit(){
       const api = "https://reqres.in/api/users?page=1";
       Axios.get(api).then((res)=>{
-         // Start loader immediately
           // Start loader immediately
           this.$nuxt.$loading.start()
           // Actually change route 5s later
