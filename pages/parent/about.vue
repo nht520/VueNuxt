@@ -1,8 +1,6 @@
 <template>
     <div class="about">
-        <p>
-            我是个人中心
-        </p>
+        我是个人中心
     </div>
 </template>
 
@@ -14,6 +12,7 @@ export default {
 //     if (!from) return 'slide-right'
 //     return +to.query.page < +from.query.page ? 'slide-left' : 'slide-right'
 //   },
+    data(){}
 }
 </script>
 

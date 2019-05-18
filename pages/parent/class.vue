@@ -3,6 +3,7 @@
         <p>
             我是分类
         </p>
+        <nuxt-link to="/">login</nuxt-link>    
     </div>
 </template>
 
