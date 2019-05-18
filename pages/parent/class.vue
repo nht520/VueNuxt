@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="class">
         <p>
             我是分类
         </p>
@@ -8,10 +8,13 @@
 
 <script>
 export default {
-
+  // 页面切换动画
+  transition:"transleft",
 }
 </script>
 
-<style>
-
+<style lang="stylus">
+    .class{
+        height 500px
+    }
 </style>

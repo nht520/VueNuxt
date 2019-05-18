@@ -1,6 +1,5 @@
 <template>
   <div id="container">
-      <h1>999999999</h1>
         <nuxt-link to="/home">home</nuxt-link>
         <nuxt-link to="/login">login</nuxt-link>      
       <ul>
@@ -19,8 +18,7 @@
         默认路由 /parent/class
       -->
       <nuxt-link to="/parent/class">嵌套路由</nuxt-link> 
-      <!-- 引用组件传值 -->
-      <Header  :headTitle="msg" ></Header>
+      <!--  -->
   </div>
 </template>
 <script>
@@ -40,7 +38,7 @@ export default {
     return new Promise((resolve) => {
       setTimeout(function () {
         resolve({})
-      },500)
+      },400)
     })
   },
   components: {
@@ -48,7 +46,6 @@ export default {
   },
   data () {
     return{
-      msg:"我是首页的头部",
       list:[],
     }
   },
@@ -56,12 +53,12 @@ export default {
     submit(){
       const api = "https://reqres.in/api/users?page=1";
       Axios.get(api).then((res)=>{
-          // Start loader immediately
+          // 加载
           this.$nuxt.$loading.start()
           // Actually change route 5s later
-          setTimeout(() => {
-            this.$router.push('/home')
-          }, 1000)
+          // setTimeout(() => {
+          //   this.$router.push('/home')
+          // }, 500)
         // Actually change route 5s later
         this.list=res.data.data;
         storage.set("list",this.list);
@@ -83,5 +80,7 @@ export default {
   #container img
    width 50px
    height 50px  
+  &ul li
+   list-style none 
 </style>
 
