@@ -18,7 +18,10 @@
         默认路由 /parent/class
       -->
       <nuxt-link to="/parent/class">嵌套路由</nuxt-link> 
-      <!--  -->
+      <!-- 引入dialog 组件 -->
+      <Dialogs :text="title" :hedTitle="hedTitle" ref="nuxtdlg"></Dialogs>
+      <!-- anniu -->
+      <el-button type="primary" @click="dlgbutton">弹出层</el-button>
   </div>
 </template>
 <script>
@@ -27,6 +30,7 @@ import storage from '~/plugins/storage.js'
 import news from '~/pages/news/news.vue';
 import parent from '~/pages/parent.vue';
 import Header from '~/components/Header.vue';
+import Dialogs from '~/components/Dialogs.vue';
 export default {
   // 页面切换动画
   transition:"transleft",
@@ -39,14 +43,20 @@ export default {
     })
   },
   components: {
-    news,parent,Header
+    news,parent,Header,Dialogs
   },
   data () {
     return{
       list:[],
+      title:"我是首页的提示",
+      hedTitle:"是否确认提交？"
     }
   },
   methods:{
+    // 弹出层
+    dlgbutton(){
+      this.$refs.nuxtdlg.nuxtDialog();
+    },
     submit(){
       const api = "https://reqres.in/api/users?page=1";
       Axios.get(api).then((res)=>{
@@ -71,7 +81,6 @@ export default {
 <style lang="stylus" scope>
   #container
    text-align center
-   width 100%
   #container h1
     color #ff0000 
   #container img
