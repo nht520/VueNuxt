@@ -70,5 +70,6 @@ export default {
 <style lang="stylus">
     .bottom
      list-style none
-    
+    .Navigation .v-sheet
+     border-radius 0px
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dialogs">
         <v-layout row justify-center>
             <v-dialog
             v-model="dialog"
@@ -57,7 +57,7 @@
      font-size 16px !important
     .v-dialog__content--active
      background rgba(0,0,0,0.5)
-    .theme--light.v-sheet
+    .dialogs .theme--light
      border-radius 5px
     .v-dialog
      box-shadow 0px 11px 15px -7px rgba(0,0,0,0.0), 0px 24px 38px 3px rgba(0,0,0,0.0), 0px 9px 46px 8px rgba(0,0,0,0.0)
